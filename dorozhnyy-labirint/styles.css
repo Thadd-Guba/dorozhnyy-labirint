@@ -107,6 +107,77 @@ h1 {
   font-size: 14px;
 }
 
+.scenario-img {
+  width: 100%;
+  max-height: 400px; /* Ограничивает высоту на мобильных */
+  object-fit: cover; /* Обрезает по высоте, сохраняя пропорции */
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.path-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.path-options button {
+  width: 80%;
+  max-width: 300px;
+  padding: 12px;
+  font-size: 16px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.path-options button:hover {
+  background: #e67e22;
+  transform: translateY(-3px);
+}
+
+.progress {
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.score-board {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  font-size: 18px;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.back-btn, .menu-btn {
+  background: #95a5a5;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.red { background-color: #c0392b; }
+.green { background-color: #27ae60; }
+
+@keyframes starPop {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.star-gain {
+  animation: starPop 0.5s forwards;
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
   .item-grid { grid-template-columns: repeat(2, 1fr); }
@@ -115,4 +186,192 @@ h1 {
 @media (max-width: 480px) {
   .item-grid { grid-template-columns: 1fr; gap: 15px; }
   .level { padding: 15px; margin: 10px; }
+}
+/* Подпись над светофором */
+.signal-label {
+  font-size: 16px;
+  color: #7f8c8d;
+  margin-bottom: 10px;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Увеличенный светофор */
+.large-light {
+  padding: 20px 40px;        /* Больше отступов */
+  border-radius: 60px;     /* Закруглённые углы */
+  font-size: 24px;         /* Крупный текст */
+  min-width: 180px;      /* Минимальная ширина */
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase; /* «Красный» → «КРАСНЫЙ» */
+}
+
+
+/* Цвета светофора (остаются прежними, но работают с .large-light) */
+.red.large-light {
+  background-color: #c0392b;
+  box-shadow: 0 0 20px rgba(192, 57, 43, 0.6);
+}
+
+.green.large-light {
+  background-color: #27ae60;
+  box-shadow: 0 0 20px rgba(39, 174, 96, 0.6);
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 600px) {
+  .large-light {
+    padding: 15px 30px;
+    font-size: 20px;
+    min-width: 140px;
+  }
+  .signal-label {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+}
+/* Стиль кнопки «Идти» (как на уровне 2) */
+#goBtn {
+  display: block;
+  width: 220px;          /* Ширина кнопки */
+  padding: 18px 0;      /* Вертикальные отступы */
+  margin: 20px auto;    /* Отступы сверху/снизу, центрирование */
+  font-size: 20px;     /* Размер текста */
+  font-weight: bold;    /* Жирный шрифт */
+  color: white;         /* Цвет текста */
+  background-color: #e67e22; /* Основной цвет */
+  border: none;          /* Убираем рамку */
+  border-radius: 8px;   /* Закруглённые углы */
+  cursor: pointer;       /* Курсор-рука при наведении */
+  text-align: center;    /* Центрирование текста */
+  transition: background-color 0.3s, transform 0.2s; /* Плавные эффекты */
+}
+
+/* Эффект при наведении */
+#goBtn:hover {
+  background-color:  #eb8c39; /* Светлее при наведении */
+  transform: translateY(-2px); /* Лёгкое поднятие */
+}
+
+/* Эффект при нажатии */
+#goBtn:active {
+  transform: scale(0.98); /* Лёгкое уменьшение при клике */
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 600px) {
+  #goBtn {
+    width: 180px;
+    padding: 14px 0;
+    font-size: 18px;
+  }
+}
+/* Стили для 5 уровня */
+.level-5 {
+  padding: 20px;
+}
+
+.level-5 .scenario-img {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.choice-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.choice-buttons button {
+  padding: 15px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.choice-buttons button:hover {
+  background-color: #45a049;
+}
+
+.level-6 {
+  padding: 20px;
+}
+
+.simple-scene {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.scene-img {
+  width: 100%;
+}
+
+.traffic-light-spot {
+  position: absolute;
+  width: 50px;
+  height: 100px;
+  border: 2px dashed red;
+  cursor: pointer;
+}
+
+#checkBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#checkBtn:hover {
+  background-color: #45a049;
+}
+.game-over {
+  text-align: center;
+  padding: 40px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.game-over h2 {
+  color: #159957;
+  margin-bottom: 20px;
+}
+
+.game-over p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.game-over button {
+  margin: 10px;
+  padding: 15px 30px;
+  font-size: 16px;
+  background-color: #159957;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.game-over button:hover {
+  background-color: #117a46;
+}
+.traffic-light-spot {
+  position: absolute;
+  width: 50px;
+  height: 100px;
+  border: 2px dashed red;
+  cursor: pointer;
+  transition: border 0.3s;
 }
